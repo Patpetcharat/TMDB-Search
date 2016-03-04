@@ -43,14 +43,14 @@ gulp.task('styles-production', function(){
 });
 
 gulp.task('scripts-production', function(){
-	return browserify("./src/scripts/app.js", {debug:false})
-		.transform("babelify", {presets: ["es2015", "react"]})
-		.bundle()
-		.on('error', function(err) { console.error(err); this.emit('end'); })
-		.pipe(source('app.js'))
-		.pipe(buffer())
-		.pipe(uglify())
-		.pipe(gulp.dest('./public/scripts'));
+	webpack(webpackConfig, function(err, stats) {
+        if(err) throw new gutil.PluginError("webpack", err);
+        gutil.log("[webpack]", stats.toString({
+            // output options
+        }));
+
+        gutil.log("[webpack]", webpackConfig);
+    });
 });
 
 
