@@ -1,13 +1,17 @@
 var gulp = require('gulp');
 var watch = require('gulp-watch');
+var plumber = require('gulp-plumber');
 var historyApiFallback = require('connect-history-api-fallback')
 
 var gutil = require("gulp-util");
 var webpack = require("webpack");
 var webpackDevMiddleware = require('webpack-dev-middleware');
 var webpackHotMiddleware = require('webpack-hot-middleware');
-var webpackConfig = require('./webpack.config');
-var bundler = webpack(webpackConfig);
+
+var webpackDevConfig = require('./webpack.dev.config');
+var bundlerDev = webpack(webpackDevConfig);
+var webpackProductionConfig = require('./webpack.production.config');
+var bundlerProduction = webpack(webpackProductionConfig);
 
 var autoprefixer = require('gulp-autoprefixer');
 var sass = require('gulp-sass');
@@ -23,7 +27,7 @@ Development Tasks
 gulp.task('styles', function(){
 	return gulp.src('src/styles/app.scss')
 		.pipe(sourcemaps.init())
-		.pipe(sass({outputStyle: 'expanded'}))
+		.pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
 		.pipe(autoprefixer())
 		.pipe(sourcemaps.write('maps'))
 		.pipe(gulp.dest('public/styles'))
@@ -43,31 +47,29 @@ gulp.task('styles-production', function(){
 });
 
 gulp.task('scripts-production', function(){
-	webpack(webpackConfig, function(err, stats) {
-        if(err) throw new gutil.PluginError("webpack", err);
-        gutil.log("[webpack]", stats.toString({
-            // output options
-        }));
-
-        gutil.log("[webpack]", webpackConfig);
-    });
+	webpack(webpackProductionConfig, function(err, stats) {
+		if(err) throw new gutil.PluginError("webpack", err);
+		
+		gutil.log("[webpack]", stats.toString({
+			// output options
+		}));
+	});
 });
 
 
 /**************************************************
 BrowserSync
 ***************************************************/
-// gulp.task('browser-sync', ['html', 'styles', 'assets'], function() {
 gulp.task('browser-sync', ['styles'], function() {
 	browserSync.init({
 		server: {
 			baseDir: "public",
 
 			middleware: [
-				webpackDevMiddleware(bundler, {
+				webpackDevMiddleware(bundlerDev, {
 					// IMPORTANT: dev middleware can't access config, so we should
 					// provide publicPath by ourselves
-					publicPath: webpackConfig.output.publicPath,
+					publicPath: webpackDevConfig.output.publicPath,
 
 					// pretty colored output
 					stats: { colors: true }
@@ -76,10 +78,10 @@ gulp.task('browser-sync', ['styles'], function() {
 					// http://webpack.github.io/docs/webpack-dev-middleware.html
 				}),
 
-				// bundler should be the same as above
-				webpackHotMiddleware(bundler),
+				// bundlerDev should be the same as above
+				webpackHotMiddleware(bundlerDev),
 
-				// For using React Router, or any client side router
+				// Always point to index for client side routing
 				historyApiFallback()
 			]
 		},
