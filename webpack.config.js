@@ -23,8 +23,13 @@ module.exports = {
 	plugins: [
 		new webpack.optimize.OccurenceOrderPlugin(),
 		new webpack.HotModuleReplacementPlugin(),
-		new webpack.NoErrorsPlugin()
+		new webpack.NoErrorsPlugin(),
+
+		new webpack.optimize.DedupePlugin(),
+    	new webpack.optimize.UglifyJsPlugin()
 	],
+
+	historyApiFallback: true,
 
 	module: {
 		loaders: [
@@ -39,3 +44,5 @@ module.exports = {
 		]
 	}
 };
+
+    

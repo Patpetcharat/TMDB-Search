@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var watch = require('gulp-watch');
+var historyApiFallback = require('connect-history-api-fallback')
 
 var gutil = require("gulp-util");
 var webpack = require("webpack");
@@ -14,6 +15,7 @@ var nano = require('gulp-cssnano');
 var sourcemaps = require('gulp-sourcemaps');
 
 var browserSync = require('browser-sync').create();
+
 
 /**************************************************
 Development Tasks
@@ -40,6 +42,17 @@ gulp.task('styles-production', function(){
 		.pipe(gulp.dest('public/styles'))
 });
 
+gulp.task('scripts-production', function(){
+	return browserify("./src/scripts/app.js", {debug:false})
+		.transform("babelify", {presets: ["es2015", "react"]})
+		.bundle()
+		.on('error', function(err) { console.error(err); this.emit('end'); })
+		.pipe(source('app.js'))
+		.pipe(buffer())
+		.pipe(uglify())
+		.pipe(gulp.dest('./public/scripts'));
+});
+
 
 /**************************************************
 BrowserSync
@@ -64,7 +77,10 @@ gulp.task('browser-sync', ['styles'], function() {
 				}),
 
 				// bundler should be the same as above
-				webpackHotMiddleware(bundler)
+				webpackHotMiddleware(bundler),
+
+				// For using React Router, or any client side router
+				historyApiFallback()
 			]
 		},
 
@@ -78,4 +94,4 @@ gulp.task('browser-sync', ['styles'], function() {
 Gulp Tasks
 ***************************************************/
 gulp.task('default', ['browser-sync']);
-gulp.task('production', ['html-production', 'styles-production', 'scripts-production', 'assets-production']);
+gulp.task('production', ['styles-production', 'scripts-production']);
