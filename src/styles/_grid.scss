@@ -1,0 +1,12 @@
+// Breakpoints
+$break-sm-max: max-width 767px;
+$break-md-max: max-width 990px;
+
+$susy: (
+	columns: 12,
+	gutters: 1/4,
+	gutter-position: split,
+	box-sizing: border-box,
+	container: 960px,
+	container-position: center
+);
