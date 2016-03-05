@@ -85,7 +85,6 @@ gulp.task('browser-sync', ['styles'], function() {
 				historyApiFallback()
 			]
 		},
-
 		open: false // Don't automatically open a new window
 	});
 
