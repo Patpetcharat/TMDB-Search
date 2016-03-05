@@ -4,15 +4,10 @@ var webpack = require('webpack');
 var path = require('path');
 
 module.exports = {
-	debug: true,
-	devtool: '#eval-source-map',
+	debug: false,
 	context: path.join(__dirname, 'src', 'scripts'),
 
-	entry: [
-		'webpack/hot/dev-server',
-		'webpack-hot-middleware/client',
-		'./app'
-	],
+	entry: './app',
 
 	output: {
 		path: path.join(__dirname, 'public', 'scripts'),
@@ -22,13 +17,9 @@ module.exports = {
 
 	plugins: [
 		new webpack.optimize.OccurenceOrderPlugin(),
-		new webpack.HotModuleReplacementPlugin(),
-		new webpack.NoErrorsPlugin(),
 		new webpack.optimize.DedupePlugin(),
     	new webpack.optimize.UglifyJsPlugin()
 	],
-
-	historyApiFallback: true,
 
 	module: {
 		loaders: [

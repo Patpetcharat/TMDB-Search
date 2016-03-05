@@ -26,8 +26,6 @@ module.exports = {
 		new webpack.NoErrorsPlugin()
 	],
 
-	historyApiFallback: true,
-
 	module: {
 		loaders: [
 			{
