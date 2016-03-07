@@ -44,7 +44,6 @@ function renderPage(appHtml) {
 			<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
 		</head> 	
 		<body>
-			<h1>Server Rendered</h1>
 			<div id="app">${appHtml}</div>
 			<script type="text/javascript" src="./scripts/bundle.js"></script>
 		</body>
