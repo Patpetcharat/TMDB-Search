@@ -1,4 +1,4 @@
-# React Isomorphic Starter with SASS and Webpack Hot Modue Replacemnt
+# React Isomorphic Starter with SASS and Webpack Hot Modue Replacement
 A starter for building isomorphic React apps with Webpack Hot Module Replacement for developent
 
 ## Getting Started
