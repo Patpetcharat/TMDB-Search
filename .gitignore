@@ -2,3 +2,4 @@ node_modules
 public/styles/maps
 app.css
 bundle.js
+server.bundle.js

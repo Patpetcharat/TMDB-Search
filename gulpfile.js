@@ -12,6 +12,7 @@ var webpackDevConfig = require('./webpack.dev.config');
 var bundlerDev = webpack(webpackDevConfig);
 var webpackProductionConfig = require('./webpack.production.config');
 var bundlerProduction = webpack(webpackProductionConfig);
+var webpackServerConfig = require('./webpack.server.config');
 
 var autoprefixer = require('gulp-autoprefixer');
 var sass = require('gulp-sass');
@@ -48,6 +49,14 @@ gulp.task('styles-production', function(){
 
 gulp.task('scripts-production', function(){
 	webpack(webpackProductionConfig, function(err, stats) {
+		if(err) throw new gutil.PluginError("webpack", err);
+		
+		gutil.log("[webpack]", stats.toString({
+			// output options
+		}));
+	});
+
+	webpack(webpackServerConfig, function(err, stats) {
 		if(err) throw new gutil.PluginError("webpack", err);
 		
 		gutil.log("[webpack]", stats.toString({
