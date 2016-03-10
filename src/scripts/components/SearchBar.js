@@ -1,12 +1,31 @@
 import React from 'react'
+import { browserHistory } from 'react-router'
 
-export default React.createClass({
+let searchTerm = "";
+
+export default class SearchBar extends React.Component {
+	constructor(props) {
+		super(props);
+	}
+
+	onChange(e){
+		searchTerm = e.target.value;
+	}
+
+	submit(){
+		const path = `/${searchTerm}`
+    	browserHistory.push(path)
+	}
+
 	render() {
 		return (
 			<div>
-				<h1>Search Bar</h1>
+				<input
+					type="text"
+					onChange={this.onChange}
+				/>
+				<button onClick={this.submit}>Search</button>
 			</div>
 		)
 	}
-})
-
+}

@@ -5,7 +5,7 @@ if (module.hot) {
   module.hot.accept();
 }
 
-export default React.createClass({
+export default class Index extends React.Component {
 	render() {
 		return (
 			<div>
@@ -14,5 +14,4 @@ export default React.createClass({
 			</div>
 		)
 	}
-})
-
+}
