@@ -1,10 +1,12 @@
 import React from 'react'
-import NavLink from './NavLink'
 
 export default React.createClass({
 	render() {
 		return (
-			<h1>Header</h1>
+			<div>
+				<h1>Search Bar</h1>
+			</div>
 		)
 	}
 })
+

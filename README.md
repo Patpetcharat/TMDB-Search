@@ -1,4 +1,4 @@
-# React Isomorphic Starter with SASS and Webpack Hot Modue Replacement
+# TMDB search
 A starter for building isomorphic React apps with Webpack Hot Module Replacement for developent
 
 ## Getting Started
@@ -12,7 +12,7 @@ $ npm install
 $ gulp
 ```
 
-### Production Build
+### Production Build and run production server with server-side rendering
 ```sh
 $ npm start
 ```
