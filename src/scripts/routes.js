@@ -13,5 +13,6 @@ module.exports = (
 	<Route path="/" component={Index}>
 		<IndexRoute component={Home} />
 		<Route path="/:searchTerm" component={Search} />
+		<Route path="/:searchTerm/:pageNumber" component={Search} />
 	</Route>
 )

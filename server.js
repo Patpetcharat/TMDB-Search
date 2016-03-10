@@ -38,14 +38,14 @@ function renderPage(appHtml) {
 		<head>
 			<title>Hello, React Isomornic</title>
 			
-			<link rel="stylesheet" type="text/css" href="./styles/app.css">
+			<link rel="stylesheet" type="text/css" href="/styles/app.css">
 			<link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
 
 			<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
 		</head> 	
 		<body>
 			<div id="app">${appHtml}</div>
-			<script type="text/javascript" src="./scripts/bundle.js"></script>
+			<script type="text/javascript" src="/scripts/bundle.js"></script>
 		</body>
 		</html>
 	`
