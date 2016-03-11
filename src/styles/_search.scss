@@ -1,0 +1,30 @@
+// Colors
+
+#Search{
+
+	.movie{
+		margin: 20px;
+		width: 150px;
+		text-align: center;
+		display: inline-block;
+
+		.poster{
+			position: relative;
+			width: 150px;
+			height: 225px;
+			background-color: grey;
+			
+			.poster_img{
+				width: 100%;
+				height: 100%;	
+			}
+		}
+
+		.title{
+			font-size: 14px;
+			white-space: nowrap;
+  			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
+}

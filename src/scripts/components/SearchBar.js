@@ -13,13 +13,13 @@ export default class SearchBar extends React.Component {
 	}
 
 	submit(){
-		const path = `/${searchTerm}`
+		const path = `/search/${searchTerm}`
     	browserHistory.push(path)
 	}
 
 	render() {
 		return (
-			<div>
+			<div id="SearchBar">
 				<input
 					type="text"
 					onChange={this.onChange}

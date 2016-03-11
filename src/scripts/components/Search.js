@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom'
 import TweenMax from 'gsap'
 import $ from 'jquery'
 
+import Movie from './Movie'
+import Pagination from './Pagination'
+
 export default class SearchBar extends React.Component {
 	constructor(props){
 		super(props);
@@ -55,18 +58,18 @@ export default class SearchBar extends React.Component {
 
 		let resultNodes = this.state.data.results.map(movie => {
 			return (
-				<div className="movie" key={movie.id}>
-					<h2>{movie.title}</h2>
-				</div>
+				<Movie data={movie} key={movie.id} />
 			);
 		});
 
 		return (
-			<div ref="fullPageContainer" className="fullPageContainer">
+			<div ref="fullPageContainer" id="Search" className="fullPageContainer">
 				<h2>searchTerm: {searchTerm}</h2>
 				<h2>pageNumber: {pageNumber}</h2>
 
 				{resultNodes}
+
+				<Pagination totalPages={this.state.data.total_pages} currentPage={pageNumber}/>
 			</div>
 		)
 	}
