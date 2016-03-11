@@ -31,6 +31,8 @@ $ npm start
 - Pagination links should have the current page highlighted and disabled
 - Transition between pages currently seem to overlap strangely
 - Use ImagesLoaded plugin to show a placeholder for the movie poster images while the image is loading, and then transition in the image.
+- Show "no results" message when no results are returned.
+- Should not show vote average when there are no votes
 - Render initial page view on the server, for faster initial page load.
 
 ## Compatibility
