@@ -16,7 +16,7 @@ $ npm install gulp -g
 $ gulp
 ```
 
-### Production Build and run production server with server-side rendering
+### Production Build and run production server on port 8080
 ```sh
 $ npm start
 ```
