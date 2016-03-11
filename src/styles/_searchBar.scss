@@ -11,6 +11,11 @@
 
 	.input-search{
 		color: black;
+		width: 200px;
+
+		@include breakpoint($break-mobile-max) {
+			width: 60%;
+		}
 	}
 
 	.btn-search{
@@ -21,5 +26,10 @@
 		border: 0;
 		padding: 8px;
 		margin: 0 20px;
+
+		@include breakpoint($break-mobile-max) {
+			width: 30%;
+			margin: 0 0 0 20px;
+		}
 	}
 }
