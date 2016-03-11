@@ -16,7 +16,7 @@ $ npm install gulp -g
 $ gulp
 ```
 
-### Production Build and run production server with server-side rendering
+### Production Build and run production server on port 8080
 ```sh
 $ npm start
 ```
@@ -34,6 +34,8 @@ $ npm start
 - Show "no results" message when no results are returned.
 - Should not show vote average when there are no votes
 - Render initial page view on the server, for faster initial page load.
+- Reduce bundle.js file size by removing jQuery dependency, and replacing it with a smaller AJAX library
+- Reduce bundle.js file size by using TweenLite instead of TweenMax, and write a custom "StaggerTo" function.
 
 ## Compatibility
 - Tested on the latest versions of Chrome, Firefox, and Safari.
