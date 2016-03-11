@@ -26,7 +26,7 @@ $ npm start
 - Webpack - uses Babel to transform ES2015 and JSX, and bundles javascript into a single file.
 - React.js - provides composable components, and renders page content.
 - React Router - implements History API allowing browser history navigation and sharing of search page URLs
-
+- Greensock - create performant, cross browser compatible animations
 
 ## To do
 - Fix IE9 and IE10 javascript error that prevents the search results from showing.
