@@ -1,4 +1,4 @@
-# TMDB search
+# TMDB Search
 A web app to search The Movie Database
 
 ## Getting Started
@@ -6,7 +6,7 @@ A web app to search The Movie Database
 ```sh
 $ npm install
 ```
-If you don't have gulp installed, you also have to install it using
+If you don't have gulp installed
 ```sh
 $ npm install gulp -g
 ```
@@ -16,7 +16,7 @@ $ npm install gulp -g
 $ gulp
 ```
 
-### Production Build and run production server on port 8080
+### Production build, and run production server on port 8080
 ```sh
 $ npm start
 ```
@@ -39,6 +39,7 @@ $ npm start
 - Render initial page view on the server, for faster initial page load.
 - Reduce bundle.js file size by removing jQuery dependency, and replacing it with a smaller AJAX library
 - Reduce bundle.js file size by using TweenLite instead of TweenMax, and write a custom "StaggerTo" function.
+- General clean up of unused code.
 
 ## Compatibility
 - Compatible with the latest versions of Chrome, Firefox, and Safari.
