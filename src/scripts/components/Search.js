@@ -53,7 +53,6 @@ export default class SearchBar extends React.Component {
 		TweenMax.to(this.fullPageContainer, 1, {opacity:0, onComplete:callback});
 	}
 	render() {
-		// TEST
 		const { searchTerm, pageNumber } = this.props.params 
 
 		let resultNodes = this.state.data.results.map(movie => {
@@ -64,12 +63,13 @@ export default class SearchBar extends React.Component {
 
 		return (
 			<div ref="fullPageContainer" id="Search" className="fullPageContainer">
-				<h2>searchTerm: {searchTerm}</h2>
-				<h2>pageNumber: {pageNumber}</h2>
+				<h2>Search Results for: "{searchTerm}"</h2>
 
 				{resultNodes}
 
-				<Pagination totalPages={this.state.data.total_pages} currentPage={pageNumber}/>
+				<Pagination
+					totalPages={this.state.data.total_pages} 
+					currentPage={pageNumber}/>
 			</div>
 		)
 	}

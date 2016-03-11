@@ -24,16 +24,14 @@ export default class Pagination extends React.Component {
 				url = pathname + '/' + (i+1);
 			}
 
-			
-
 			pageNodes.push(
-				<div key={i}><NavLink to={url}>{i+1}</NavLink></div>
+				<div className="page" key={i}><NavLink to={url}>{i+1}</NavLink></div>
 			);
 		}
 
 		return (
-			<div className="pagination">
-				<h2>Pagination {this.props.currentPage}/{this.props.totalPages}</h2>
+			<div id="Pagination">
+				<h2>Page {this.props.currentPage}/{this.props.totalPages}</h2>
 				{pageNodes}
 			</div>
 		)

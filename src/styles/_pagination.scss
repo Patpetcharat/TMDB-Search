@@ -1,0 +1,27 @@
+// Colors
+$blue-dark: #131921;
+$grey-medium: #858585;
+$grey-dark: #252525;
+$yellow: #FFB500;
+$black-trans: rgba(0,0,0,0.8);
+
+#Pagination{
+	background: $black-trans;
+	padding: 10px 40px 40px 40px;
+	
+	.page{
+		display: inline-block;
+		
+		a{
+			display: inline-block;
+			color: white;
+			text-decoration: none;
+			transition: color 0.25s ease;
+			padding: 4px 10px;
+
+			&:hover{
+				color: $yellow;
+			}
+		}
+	}
+}
