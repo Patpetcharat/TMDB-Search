@@ -21,7 +21,7 @@ export default class SearchBar extends React.Component {
 	render() {
 		return (
 			<div id="SearchBar">
-				<form onSubmit={this.submit}>
+				<form className="form-search" onSubmit={this.submit}>
 					<input
 						type="text"
 						onChange={this.onChange}

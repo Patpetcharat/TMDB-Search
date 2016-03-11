@@ -9,14 +9,21 @@
 	padding: 8px;
 	text-align: center;
 
-	.input-search{
-		color: black;
+	.form-search{
+		display: inline-block;
 		width: 200px;
 
 		@include breakpoint($break-mobile-max) {
 			width: 60%;
 		}
+
+		.input-search{
+			color: black;
+			width: 100%;
+		}
 	}
+
+	
 
 	.btn-search{
 		background: $grey-medium;

@@ -29,8 +29,6 @@ $ npm start
 - Many movies do not have images. Currently, this results in a 404. A placeholder image should be shown in their place.
 - Pagination currently shows links to an unlimited number of pages, and causes the browser to slow down when there are a large number of pages. We should truncate the available pages to only show a few before and after the current page.
 - Pagination links should have the current page highlighted and disabled
-- Pagination component should hide if there is only one page of results
-- Didn't have a chance to check 
 - Transition between pages currently seem to overlap strangely
 - Use ImagesLoaded plugin to show a placeholder for the movie poster images while the image is loading, and then transition in the image.
 - Render initial page view on the server, for faster initial page load.
