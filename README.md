@@ -43,7 +43,7 @@ $ npm start
 
 ## Compatibility
 - Compatible with the latest versions of Chrome, Firefox, and Safari.
-- Compatible with Chrome browser for Android 5.1
-- Compatible with IE11
-- Although this app should be compatible with IE9+, IE9 and IE10 are currently throwing a javascript error that prevents the search results from displaying
-- Currently untested on iOS
+- Compatible with Chrome browser for Android 5.1.
+- Compatible with IE11.
+- Although this app should be compatible with IE9+, IE9 and IE10 are currently throwing a javascript error that prevents the search results from displaying.
+- Currently untested on iOS.
