@@ -21,9 +21,11 @@ $ gulp
 $ npm start
 ```
 
-## Features
-- History API allows using the browser's hitory navigation
-- React Router allows URL sharing of search pages
+## Tools Used
+- Gulp - compiles autoprefixes, compiles SASS, and minifies the CSS.
+- Webpack - uses Babel to transform ES2015 and JSX, and bundles javascript into a single file.
+- React.js - provides composable components, and renders page content.
+- React Router - implements History API allowing browser history navigation and sharing of search page URLs
 
 
 ## To do
