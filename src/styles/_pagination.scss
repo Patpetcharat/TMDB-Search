@@ -8,6 +8,7 @@ $black-trans: rgba(0,0,0,0.8);
 #Pagination{
 	background: $black-trans;
 	padding: 10px 40px 40px 40px;
+	opacity: 0;
 	
 	.page{
 		display: inline-block;

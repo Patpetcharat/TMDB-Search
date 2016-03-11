@@ -30,7 +30,7 @@ export default class Pagination extends React.Component {
 		}
 
 		return (
-			<div id="Pagination">
+			<div id="Pagination" className="pagination">
 				<h2>Page {this.props.currentPage}/{this.props.totalPages}</h2>
 				{pageNodes}
 			</div>

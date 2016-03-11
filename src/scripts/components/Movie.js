@@ -1,6 +1,7 @@
 import React from 'react'
+import GSAP from 'react-gsap-enhancer'
 
-export default class Movie extends React.Component {
+class Movie extends React.Component {
 	constructor(props){
 		super(props);
 
@@ -29,3 +30,5 @@ export default class Movie extends React.Component {
 		)
 	}
 }
+
+export default GSAP()(Movie)

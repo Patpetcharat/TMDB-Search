@@ -2,11 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import TweenMax from 'gsap'
 import $ from 'jquery'
+import GSAP from 'react-gsap-enhancer'
 
 import Movie from './Movie'
 import Pagination from './Pagination'
 
-export default class SearchBar extends React.Component {
+class Search extends React.Component {
 	constructor(props){
 		super(props);
 
@@ -18,10 +19,7 @@ export default class SearchBar extends React.Component {
 	}
 
 	componentDidMount(){
-		// Get the DOM object for animating with Greensock
-		this.fullPageContainer = ReactDOM.findDOMNode(this.refs.fullPageContainer);
-
-		// Make the API request
+		// When the component mounts, make the API request
 		const { searchTerm, pageNumber } = this.props.params;
 
 		const api_url = "http://api.themoviedb.org/3/search/movie?api_key=42b3e60b6636f50062f6d3579100d83f&query=";
@@ -36,8 +34,6 @@ export default class SearchBar extends React.Component {
 		$.get(request_url, (res)=>{
 			this.state.data = res;
 			this.setState(this.state);
-
-			console.log('data:', this.state);
 		});
 	}
 
@@ -46,14 +42,26 @@ export default class SearchBar extends React.Component {
 	}
 
 	componentDidEnter(){
-		TweenMax.to(this.fullPageContainer, 1, {opacity:1});
+		TweenMax.to(this.fullPageContainer, 0.4, {opacity:1});
 	}
 
 	componentWillLeave(callback){
-		TweenMax.to(this.fullPageContainer, 1, {opacity:0, onComplete:callback});
+		TweenMax.to(this.fullPageContainer, 0.4, {opacity:0, onComplete:callback});
 	}
+
+	componentDidUpdate(){
+		TweenMax.staggerTo('.movie', 0.5, {y:0, opacity:1}, 0.25);
+		TweenMax.to('.pagination', 0.5, {opacity:1, delay:0.5});
+	}
+
 	render() {
-		const { searchTerm, pageNumber } = this.props.params 
+		const { searchTerm, pageNumber } = this.props.params
+		let currentPage;
+		if(pageNumber){
+			currentPage = pageNumber;
+		}else{
+			currentPage = 1;
+		}
 
 		let resultNodes = this.state.data.results.map(movie => {
 			return (
@@ -62,15 +70,17 @@ export default class SearchBar extends React.Component {
 		});
 
 		return (
-			<div ref="fullPageContainer" id="Search" className="fullPageContainer">
+			<div ref={comp => this.fullPageContainer = comp} id="Search" className="fullPageContainer">
 				<h2>Search Results for: "{searchTerm}"</h2>
 
 				{resultNodes}
 
 				<Pagination
 					totalPages={this.state.data.total_pages} 
-					currentPage={pageNumber}/>
+					currentPage={currentPage}/>
 			</div>
 		)
 	}
 }
+
+export default GSAP()(Search)
