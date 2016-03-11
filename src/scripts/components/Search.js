@@ -57,10 +57,14 @@ class Search extends React.Component {
 	render() {
 		const { searchTerm, pageNumber } = this.props.params
 		let currentPage;
+		let isIndex;
+
 		if(pageNumber){
 			currentPage = pageNumber;
+			isIndex = false;
 		}else{
 			currentPage = 1;
+			isIndex = true;
 		}
 
 		let resultNodes = this.state.data.results.map(movie => {
@@ -77,7 +81,8 @@ class Search extends React.Component {
 
 				<Pagination
 					totalPages={this.state.data.total_pages} 
-					currentPage={currentPage}/>
+					currentPage={currentPage}
+					isIndex = {isIndex}/>
 			</div>
 		)
 	}

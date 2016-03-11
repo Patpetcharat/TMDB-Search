@@ -12,7 +12,8 @@ export default class SearchBar extends React.Component {
 		searchTerm = e.target.value;
 	}
 
-	submit(){
+	submit(e){
+		e.preventDefault();
 		const path = `/search/${searchTerm}`
     	browserHistory.push(path)
 	}
@@ -20,11 +21,14 @@ export default class SearchBar extends React.Component {
 	render() {
 		return (
 			<div id="SearchBar">
-				<input
-					type="text"
-					onChange={this.onChange}
-					className="input-search"
-				/>
+				<form onSubmit={this.submit}>
+					<input
+						type="text"
+						onChange={this.onChange}
+						className="input-search"
+					/>
+				</form>
+				
 				<button className="btn-search" onClick={this.submit}>Search</button>
 			</div>
 		)

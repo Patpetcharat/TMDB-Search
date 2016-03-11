@@ -10,18 +10,18 @@ export default class Pagination extends React.Component {
 
 	render() {
 
-		var pathname = window.location.pathname;
+		let pathname = window.location.pathname;
 
 		let pageNodes = [];
 		
 		for (let i = 0 ; i<this.props.totalPages ; i++) {
 			let url;
 
-			if(this.props.currentPage > 0){
+			if(this.props.isIndex){
+				url = pathname + '/' + (i+1);
+			}else{
 				pathname = pathname.substring(0, pathname.lastIndexOf('/')+1); // remove last portion of url
 				url = pathname + (i+1);
-			}else{
-				url = pathname + '/' + (i+1);
 			}
 
 			pageNodes.push(
